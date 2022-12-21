@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:the_movie_db/screens/trending/trending.dart';
-
 import '../screens/favorite/favorites.dart';
 import '../screens/home/home_page.dart';
 import '../screens/movie_detail/movie_detail.dart';
@@ -21,6 +20,7 @@ class RouteHelper {
   static String getMoviesHome() => moviesHome;
   static String getFavorites()=> favorites;
   static String getTrending () => trending;
+  static String getMovieDetail(int movieId, String page) => '$movieDetail?movieId=$movieId&page=$page';
 
   static List<GetPage> routes = [
     GetPage(name: splashPage, page: () =>
@@ -45,9 +45,9 @@ class RouteHelper {
     GetPage(
       name: movieDetail,
       page: () {
-        var pageId = Get.parameters['pageId'];
+        var movieId = Get.parameters['movieId'];
         var page = Get.parameters['page'];
-        return MovieDetail(pageId: int.parse(pageId!), page: page!);
+        return MovieDetail(movieId: int.parse(movieId!), page: page!);
       },
       transition: Transition.fadeIn,
     ),

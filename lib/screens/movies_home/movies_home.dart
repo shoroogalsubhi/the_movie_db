@@ -16,6 +16,7 @@ class MoviesHome extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.mainColor,
         elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

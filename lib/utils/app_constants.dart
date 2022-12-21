@@ -3,8 +3,10 @@ class AppConstants{
   //------------------ Your Data ------------------
   static const String _apiKey = "?api_key=7c9c1d3a1f27d281075b4ef409be653a";
   static const String _accountID = "16460506";
-  // static const String apiKey = "?api_key=<<Your_api_key>>";
-  // static const String accountID = "<<Your_account_ID>>";
+  static const String _sessionID = "&session_id=0dcf64caf31d40f0bfcfaa2093af514829a96e30";
+  // static const String _apiKey = "?api_key=<<Your_api_key>>";
+  // static const String _accountID = "<<Your_account_ID>>";
+  // static const String _sessionID = "<<Your_session_ID>>";
   //------------------ End Your Data ------------------
 
   static const String appName = "The Movie DB app";
@@ -13,12 +15,20 @@ class AppConstants{
   static const String image = "https://image.tmdb.org/t/p/w500";
   static const String token = "";
 
-
-  static const String favorites = "";
+  static const String favorites = "/account/$_accountID/favorite/movies$_apiKey$_sessionID";
+  static const String postFavorites = "/account/$_accountID/favorite$_apiKey$_sessionID";
   static const String trending = "/trending/all/day$_apiKey";
   static const String nowPlying = "/movie/now_playing$_apiKey$_language&page=1";
   static const String upcoming = "/movie/upcoming$_apiKey$_language&page=1";
-  static const String movies = "";
 
+  static const String categories = "/genre/movie/list$_apiKey$_language";
+  static const String moviesWithCategory = "$getMovies&with_genres=";
+  static const String moviesWithoutCategory = "$getMovies&without_genres";
+  static const String getMovies = "/discover/movie$_apiKey&include_video=false&page=1";
+  // movieDetails
+  // api_key=7c9c1d3a1f27d281075b4ef409be653a&language=en-US
+
+  static const String movieDetails = "$_apiKey$_language";
+  static const String cast = "/credits$_apiKey$_language";
 
 }

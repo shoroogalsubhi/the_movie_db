@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-
-import '../../controller/now_playing_controller.dart';
-import '../../controller/upcoming_controller.dart';
+import '../../controller/movies_controller.dart';
 import '../../models/movies_model.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
+import '../../widgets/favorite_widget.dart';
 import '../../widgets/title_text_widget.dart';
+import 'package:get/get.dart';
+import '../../routes/route_helper.dart';
 
 class Upcoming extends StatefulWidget {
   const Upcoming({Key? key}) : super(key: key);
@@ -23,8 +23,8 @@ class _UpcomingState extends State<Upcoming> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleTextWidget(text: "Upcoming"),
-        GetBuilder<UpcomingController>(builder: (data) {
-          return data.isLoaded? SizedBox(
+        GetBuilder<MoviesController>(builder: (data) {
+          return data.isLoadedUpcoming? SizedBox(
             height: Dimensions.pageViewContainer,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -43,24 +43,32 @@ class _UpcomingState extends State<Upcoming> {
   Widget _buildPageItem(int index, Result upcoming) {
     return GestureDetector(
       onTap: (){
-        // Get.toNamed(RouteHelper.getPopularFood(index, "home"));
+        Get.toNamed(RouteHelper.getMovieDetail(upcoming.id!, RouteHelper.moviesHome));
       },
-      child: Container(
-        height: Dimensions.pageViewContainer,
-        width: Dimensions.width40*3,
-        margin: EdgeInsets.symmetric(
-            horizontal: Dimensions.width10,
-            vertical: Dimensions.height10
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimensions.radius20),
-          color: index.isEven ? AppColors.secondColor : AppColors.thirdColor,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(AppConstants.image + upcoming.poster_path!),
+      child: Stack(
+        children: [
+          Container(
+            height: Dimensions.pageViewContainer,
+            width: Dimensions.width40*3,
+            margin: EdgeInsets.symmetric(
+                horizontal: Dimensions.width10,
+                vertical: Dimensions.height10
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              color: index.isEven ? AppColors.secondaryColor : AppColors.tertiaryColor,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(AppConstants.image + upcoming.posterPath!),
+              ),
+            ),
           ),
-        ),
-      ),
+
+          FavoriteWidget(
+            movie: upcoming,
+          ),
+        ],
+      )
     );
   }
 }

@@ -6,6 +6,8 @@ import '../../routes/route_helper.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
+import '../../widgets/favorite_widget.dart';
+
 class Trending extends StatefulWidget {
   const Trending({Key? key}) : super(key: key);
 
@@ -16,6 +18,7 @@ class Trending extends StatefulWidget {
 class _TrendingState extends State<Trending> {
   @override
   Widget build(BuildContext context) {
+    Get.find<TrendingController>().getTrendingList();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Trending"),
@@ -46,23 +49,32 @@ class _TrendingState extends State<Trending> {
   Widget _buildPageItem(int index, Result trending) {
     return GestureDetector(
       onTap: (){
-        // Get.toNamed(RouteHelper.getPopularFood(index, "home"));
+        Get.toNamed(RouteHelper.getMovieDetail(trending.id!, RouteHelper.trending));
       },
-      child: Container(
-        height: Dimensions.pageViewContainer,
-        width: Dimensions.width40*3,
-        margin: EdgeInsets.symmetric(
-            horizontal: Dimensions.width30,
-            vertical: Dimensions.height20
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimensions.radius20),
-          color: index.isEven ? AppColors.secondColor : AppColors.thirdColor,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(AppConstants.image + trending.backdrop_path!),
+      child: Stack(
+        children: [
+          Container(
+            height: Dimensions.pageViewContainer,
+            // width: Dimensions.width40*3,
+            margin: EdgeInsets.symmetric(
+                horizontal: Dimensions.width30,
+                vertical: Dimensions.height20
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              color: index.isEven ? AppColors.secondaryColor : AppColors.tertiaryColor,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(AppConstants.image + trending.backdropPath!),
+              ),
+            ),
           ),
-        ),
+          FavoriteWidget(
+            movie: trending,
+            size: 2,
+          ),
+
+        ],
       ),
     );
   }

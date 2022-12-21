@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:the_movie_db/screens/favorite/favorites.dart';
 import 'package:the_movie_db/screens/movies_home/movies_home.dart';
 import 'package:the_movie_db/screens/trending/trending.dart';
-
 import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 
@@ -23,9 +22,6 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void onTapNav(int index) {
-    // setState(() {
-    //   _selectedIndex = index;
-    // });
     if(index != 1){
       setState(() {
         _selectedIndex = index;
@@ -44,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.amberAccent,
+        selectedItemColor: Colors.amber,
         unselectedItemColor: Colors.white,
         backgroundColor: AppColors.mainColor,
         elevation: 0,

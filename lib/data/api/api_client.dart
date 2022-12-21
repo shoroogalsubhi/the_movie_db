@@ -29,23 +29,22 @@ class ApiClient extends GetConnect implements GetxService {
 
   Future<http.Response> getData(String uri, {Map<String, String>? headers}) async {
     http.Response response = await http.get(Uri.parse(uri), headers: headers ?? _mainHeaders);
-    // print("response2: ${response.body}");
-    // return response;
     if (response.statusCode == 200) {
       return response;
     }else {
-      throw Exception("Failed to get movie");
+      throw Exception("Failed to get the data");
     }
 
   }
 
-  Future<Response> postData(String uri, dynamic body) async{
+  Future<http.Response> postData(String uri, dynamic body) async{
     try{
-      Response response = await post(uri, body, headers: _mainHeaders);
+      http.Response response = await http.post(Uri.parse(uri), body: body, headers: _mainHeaders);
       return response;
     }catch(e){
       print(e.toString());
-      return Response(statusCode: 1, statusText: e.toString());
+      // return Response(statusCode: 1, statusText: e.toString());
+      throw Exception("Failed to post the data");
     }
   }
 }
