@@ -25,8 +25,6 @@ class AppConstants{
   static const String moviesWithCategory = "$getMovies&with_genres=";
   static const String moviesWithoutCategory = "$getMovies&without_genres";
   static const String getMovies = "/discover/movie$_apiKey&include_video=false&page=1";
-  // movieDetails
-  // api_key=7c9c1d3a1f27d281075b4ef409be653a&language=en-US
 
   static const String movieDetails = "$_apiKey$_language";
   static const String cast = "/credits$_apiKey$_language";

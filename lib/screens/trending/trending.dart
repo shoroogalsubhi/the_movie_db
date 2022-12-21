@@ -69,11 +69,13 @@ class _TrendingState extends State<Trending> {
               ),
             ),
           ),
-          FavoriteWidget(
-            movie: trending,
-            size: 2,
+          Positioned(
+            right: Dimensions.width40,
+            top: Dimensions.width30,
+            child: FavoriteWidget(
+              movie: trending,
+            ),
           ),
-
         ],
       ),
     );

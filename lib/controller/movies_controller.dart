@@ -102,7 +102,7 @@ class MoviesController extends GetxController {
         if (categories.isNotEmpty) {
           categories += ",";
         }
-        categories += "${id}";
+        categories += "$id";
       }
       // get all movies of selected category
       response = await moviesRepo.getMoviesList(AppConstants.moviesWithCategory + categories);

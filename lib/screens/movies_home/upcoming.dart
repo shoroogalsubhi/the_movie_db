@@ -63,9 +63,12 @@ class _UpcomingState extends State<Upcoming> {
               ),
             ),
           ),
-
-          FavoriteWidget(
-            movie: upcoming,
+          Positioned(
+            right: Dimensions.width20,
+            top: Dimensions.height15,
+            child: FavoriteWidget(
+              movie: upcoming,
+            ),
           ),
         ],
       )

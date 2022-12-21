@@ -5,6 +5,7 @@ import 'package:the_movie_db/controller/movie_details_controller.dart';
 import 'package:the_movie_db/controller/movies_controller.dart';
 import 'package:the_movie_db/controller/trending_controller.dart';
 import 'package:the_movie_db/routes/route_helper.dart';
+import 'package:the_movie_db/utils/app_constants.dart';
 import 'package:the_movie_db/utils/colors.dart';
 import 'package:the_movie_db/utils/dimensions.dart';
 import 'controller/favorites_controller.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           return GetBuilder<FavoritesController>(builder: (_) {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'The Movie DB App',
+              title: AppConstants.appName,
               theme: ThemeData(
                   scaffoldBackgroundColor: AppColors.mainColor,
                   textTheme: TextTheme(

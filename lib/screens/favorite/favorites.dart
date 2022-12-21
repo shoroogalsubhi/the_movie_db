@@ -58,7 +58,6 @@ class _FavoritesState extends State<Favorites> {
             margin: EdgeInsets.symmetric(
                 horizontal: Dimensions.width10,
             ),
-
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
               color: index.isEven ? AppColors.secondaryColor : AppColors.tertiaryColor,
@@ -70,17 +69,9 @@ class _FavoritesState extends State<Favorites> {
                 ),
             ),
           ),
-          // Positioned(
-          //   right: Dimensions.width20,
-          //   top: Dimensions.height15,
-          //   child: FavoriteWidget(
-          //     movie: favorites,
-          //   ),
-          // ),
           FavoriteWidget(
             movie: favorites,
           ),
-
         ],
       ),
     );

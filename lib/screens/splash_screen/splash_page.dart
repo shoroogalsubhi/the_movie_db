@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:the_movie_db/controller/movie_details_controller.dart';
 import 'package:the_movie_db/controller/trending_controller.dart';
 import 'package:the_movie_db/utils/colors.dart';
 import '../../controller/favorites_controller.dart';
@@ -42,7 +41,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         parent: animController,
         curve: Curves.linear
     );
-
     Timer(
         const Duration(seconds:3, ), ()=>
         Get.offNamed(RouteHelper.getInitial())

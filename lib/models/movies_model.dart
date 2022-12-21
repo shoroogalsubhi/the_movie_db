@@ -47,7 +47,7 @@ class Result {
   bool? adult;
   String? overview;
   String? releaseDate;
-  // bool isFavorite = false;
+
   Result({
     this.id,
     this.voteCount,
@@ -64,11 +64,6 @@ class Result {
     this.overview,
     this.releaseDate,
   });
-
-
-  // void setIsFavorite(bool isFavorite) {
-  //   isFavorite = isFavorite;
-  // }
 
   Result.fromJson(Map<String, dynamic> result) {
     voteCount = result['vote_count'];
@@ -98,6 +93,5 @@ class Result {
     overview = result['overview'];
     releaseDate = result['release_date'];
   }
-
 
 }

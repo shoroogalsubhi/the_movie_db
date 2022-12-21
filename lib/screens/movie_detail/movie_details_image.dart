@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/utils/dimensions.dart';
 
-import '../utils/app_constants.dart';
+import '../../utils/app_constants.dart';
 
 class MovieDetailsImage extends StatelessWidget {
   final String? imagePath;

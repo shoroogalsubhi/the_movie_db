@@ -12,6 +12,5 @@ class MovieDetailsRepo extends GetxService {
   }
   Future <http.Response> getCast(int movieId) async{
     return await apiClient.getData("${AppConstants.baseUrl}/movie/$movieId${AppConstants.cast}");
-
   }
 }

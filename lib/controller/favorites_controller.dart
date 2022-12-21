@@ -56,10 +56,6 @@ class FavoritesController extends GetxController {
     }
     // the movie is on the favorites list
     return true;
-
   }
-
-
-
 
 }

@@ -78,15 +78,12 @@ class _MoviesState extends State<Movies> {
               ),
             ),
           ),
-          // Positioned(
-          //   right: Dimensions.width20,
-          //   top: Dimensions.height15,
-          //   child: FavoriteWidget(
-          //     movie: movie,
-          //   ),
-          // ),
-          FavoriteWidget(
-            movie: movie,
+          Positioned(
+            right: Dimensions.width20,
+            top: Dimensions.height15,
+            child: FavoriteWidget(
+              movie: movie,
+            ),
           ),
         ],
       ),

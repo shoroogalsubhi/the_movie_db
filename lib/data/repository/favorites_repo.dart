@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../utils/app_constants.dart';
@@ -17,8 +16,8 @@ class FavoritesRepo extends GetxService {
 
   Future<http.Response> postMovieToFavorites(int movieId, bool isFavorite) async{
     return await apiClient.postData(
-    AppConstants.baseUrl +AppConstants.postFavorites,
-        json.encode({"media_type":"movie", "media_id":movieId, "favorite":isFavorite})
+    AppConstants.baseUrl + AppConstants.postFavorites,
+        json.encode({"media_type": "movie", "media_id": movieId, "favorite": isFavorite})
     );
   }
 }

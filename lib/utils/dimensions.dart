@@ -1,14 +1,10 @@
 import 'package:get/get.dart';
 
 class Dimensions {
-  // static double screenHeight = Get.context!.height;
-  // static double screenWidth = Get.context!.width;
   static double screenHeight = Get.height;
   static double screenWidth = Get.width;
 
-  static double pageView = screenHeight / 2.67;
   static double pageViewContainer = screenHeight / 3.89;
-  static double pageViewTextContainer = screenHeight / 7.13;
 
   //dynamic height padding and margin
   static double height10 = screenHeight / 85.6;
@@ -27,7 +23,6 @@ class Dimensions {
   //fontSize
   static double font16 = screenHeight / 53.5;
   static double font20 = screenHeight / 42.8;
-  static double font26 = screenHeight / 32.95;
 
   //radius
   static double radius15 = screenHeight / 57.1;

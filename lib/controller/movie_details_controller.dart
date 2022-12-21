@@ -21,11 +21,11 @@ class MovieDetailsController extends GetxController {
   bool get isLoaded => _isLoaded;
 
 
-
   getInfo(int movieId){
     getMovieInfo(movieId);
     getMovieCastList(movieId);
   }
+
   getMovieInfo(int movieId) async {
     final response = await movieDetailsRepo.getMovieInfo(movieId);
     if (response.statusCode == 200) {
@@ -50,9 +50,5 @@ class MovieDetailsController extends GetxController {
       update();
     } else {}
   }
-
-
-
-
 
 }

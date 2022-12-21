@@ -6,11 +6,9 @@ import '../utils/dimensions.dart';
 
 class FavoriteWidget extends StatefulWidget {
   final Result movie;
-  final int size;
 
   const FavoriteWidget({Key? key,
     required this.movie,
-    this.size = 1,
   }) : super(key: key);
 
   @override
@@ -32,33 +30,29 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   Widget build(BuildContext context) {
     // I used InkWell instead of the IconButton to center
     // the ❤ in the Container
-    return Positioned(
-      right: Dimensions.width20 * widget.size,
-      top: Dimensions.height15 * widget.size,
-      child: GetBuilder<FavoritesController>(builder: (data) {
-          return InkWell(
-            onTap: (){
-              setState(() {
-                isFavorite = !isFavorite;
-                favoritesController.toggle(widget.movie.id!,isFavorite);
-              });
-            },
-            child: Container(
-              height: Dimensions.width30,
-              width: Dimensions.width30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: Colors.white60,
-              ),
-              child: Icon(
-                isFavorite?Icons.favorite:Icons.favorite_border_rounded,
-                color: isFavorite?Colors.red:Colors.black87,
-                size: Dimensions.width20,
-              ),
+    return GetBuilder<FavoritesController>(builder: (data) {
+        return InkWell(
+          onTap: (){
+            setState(() {
+              isFavorite = !isFavorite;
+              favoritesController.toggle(widget.movie.id!,isFavorite);
+            });
+          },
+          child: Container(
+            height: Dimensions.width30,
+            width: Dimensions.width30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
+              color: Colors.white60,
             ),
-          );
-        }
-      ),
+            child: Icon(
+              isFavorite?Icons.favorite:Icons.favorite_border_rounded,
+              color: isFavorite?Colors.red:Colors.black87,
+              size: Dimensions.width20,
+            ),
+          ),
+        );
+      }
     );
   }
 }

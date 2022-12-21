@@ -29,7 +29,4 @@ class TrendingController extends GetxController {
     } else {}
   }
 
-
-
-
 }
