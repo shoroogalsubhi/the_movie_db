@@ -42,10 +42,10 @@ flutter run
 - [TMDB Api](https://developers.themoviedb.org/3) [Backend]
 
 ## Dependencies
- - get: ^4.6.5
- - http: ^0.13.5
- - shimmer: ^2.0.0
- - shared_preferences: ^2.0.15
+ - [get: ^4.6.5](https://pub.dev/packages/get)
+ - [http: ^0.13.5](https://pub.dev/packages/http)
+ - [shimmer: ^2.0.0](https://pub.dev/packages/shimmer)
+ - [shared_preferences: ^2.0.15](https://pub.dev/packages/shared_preferences)
 
 ## Contact me
    - Email shoroogalsubhi@gmail.com
