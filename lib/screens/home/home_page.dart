@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:the_movie_db/screens/favorite/favorites.dart';
 import 'package:the_movie_db/screens/movies_home/movies_home.dart';
 import 'package:the_movie_db/screens/trending/trending.dart';
+import 'package:the_movie_db/utils/dimensions.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     const Favorites(),
   ];
 
-  void onTapNav(int index) {
+  onTapNav(int index) {
     if(index != 1){
       setState(() {
         _selectedIndex = index;
@@ -38,14 +39,9 @@ class _HomePageState extends State<HomePage> {
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: AppColors.mainColor2,
+        unselectedItemColor: AppColors.whiteColor,
         backgroundColor: AppColors.mainColor,
-        elevation: 0,
-        selectedFontSize: 0.0,
-        unselectedFontSize: 0.0,
         currentIndex: _selectedIndex,
         onTap: onTapNav,
         items: const [
@@ -54,14 +50,13 @@ class _HomePageState extends State<HomePage> {
               label: "Movies"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.local_fire_department_sharp),
+              icon:  Icon(Icons.local_fire_department_sharp),
               label: "Trending"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite_rounded),
               label: "Favorites"
           ),
-
         ],
       ),
     );

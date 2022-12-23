@@ -73,6 +73,7 @@ class _TrendingState extends State<Trending> {
             right: Dimensions.width40,
             top: Dimensions.width30,
             child: FavoriteWidget(
+              movieId: trending.id!,
               movie: trending,
             ),
           ),

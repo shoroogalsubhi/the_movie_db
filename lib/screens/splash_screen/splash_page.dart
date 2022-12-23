@@ -9,7 +9,6 @@ import '../../controller/favorites_controller.dart';
 import '../../controller/movies_controller.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/dimensions.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -54,7 +53,10 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       body: ScaleTransition(
         scale: animation,
         child: Center(
-          child: SvgPicture.asset("assets/images/tmdb.svg", width: Dimensions.splashImg),
+          child: Image.asset(
+              "assets/images/tmdb_logo.png",
+              width: Dimensions.splashImg
+          ),
         ),
       ),
     );

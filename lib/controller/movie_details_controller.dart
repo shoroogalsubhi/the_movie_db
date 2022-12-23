@@ -21,9 +21,10 @@ class MovieDetailsController extends GetxController {
   bool get isLoaded => _isLoaded;
 
 
-  getInfo(int movieId){
-    getMovieInfo(movieId);
-    getMovieCastList(movieId);
+  getInfo(int movieId)async{
+    _isLoaded =false;
+    await getMovieInfo(movieId);
+    await getMovieCastList(movieId);
   }
 
   getMovieInfo(int movieId) async {
@@ -32,8 +33,8 @@ class MovieDetailsController extends GetxController {
       _movieInfo = Result.fromJson(
           json.decode(response.body)
       );
-      _isLoaded = true;
-      update();
+      // _isLoaded = true;
+      // update();
     }
   }
 
@@ -49,6 +50,13 @@ class MovieDetailsController extends GetxController {
       _isLoaded = true;
       update();
     } else {}
+  }
+
+  void clearData(){
+    _movieInfo = Result();
+    _movieCastList = [];
+    _isLoaded = false;
+    print("data clear");
   }
 
 }

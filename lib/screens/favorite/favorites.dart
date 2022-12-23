@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/controller/favorites_controller.dart';
 import 'package:get/get.dart';
+import 'package:the_movie_db/screens/home/home_page.dart';
 import '../../models/movies_model.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/app_constants.dart';
@@ -26,6 +27,7 @@ class _FavoritesState extends State<Favorites> {
         backgroundColor: AppColors.mainColor,
         elevation: 0,
       ),
+      // bottomNavigationBar: HomePage(),
       body: GetBuilder<FavoritesController>(builder: (data) {
         return data.isLoaded?
         GridView.builder(
@@ -69,8 +71,13 @@ class _FavoritesState extends State<Favorites> {
                 ),
             ),
           ),
-          FavoriteWidget(
-            movie: favorites,
+          Positioned(
+            right: Dimensions.width20,
+            top: Dimensions.height15,
+            child: FavoriteWidget(
+              movieId: favorites.id!,
+              movie: favorites,
+            ),
           ),
         ],
       ),

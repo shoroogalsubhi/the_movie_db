@@ -12,6 +12,7 @@ class Dimensions {
   static double height20 = screenHeight / 42.8;
   static double height30 = screenHeight / 28.5;
   static double height40 = screenHeight / 20.12;
+  static double height100 = screenHeight / 8.56;
 
   //dynamic width padding and margin
   static double width10 = screenHeight / 85.6;
@@ -20,7 +21,7 @@ class Dimensions {
   static double width30 = screenHeight / 28.5;
   static double width40 = screenHeight / 20.12;
 
-  //fontSize
+  //font size
   static double font16 = screenHeight / 53.5;
   static double font20 = screenHeight / 42.8;
 
@@ -31,4 +32,5 @@ class Dimensions {
 
   //splash screen dimensions
   static double splashImg = screenHeight / 3.42;
+  static double homeLogo = screenHeight / 5;
 }

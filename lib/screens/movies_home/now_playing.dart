@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../routes/route_helper.dart';
 import '../../controller/movies_controller.dart';
 import '../../models/movies_model.dart';
@@ -41,24 +42,30 @@ class _NowPlayingState extends State<NowPlaying> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const TitleTextWidget(text: "Now Playing"),
-        GetBuilder<MoviesController>(builder: (data) {
-          return data.isLoadedNowPlaying? SizedBox(
-            height: Dimensions.pageViewContainer,
-            child: PageView.builder(
-                controller: pageController,
-                itemCount: data.nowPlayingList.length,
-                itemBuilder: (context, position) {
-                  return _buildPageItem(position, data.nowPlayingList[position]);
-                }),
-          ): const CircularProgressIndicator(
-            color: AppColors.mainColor,
-          );
-        }),
-      ],
+    return SizedBox(
+      height: Dimensions.height100*2.7,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const TitleTextWidget(text: "Now Playing"),
+          GetBuilder<MoviesController>(builder: (data) {
+            return data.isLoadedNowPlaying? SizedBox(
+              height: Dimensions.pageViewContainer,
+              child: PageView.builder(
+                  controller: pageController,
+                  itemCount: data.nowPlayingList.length,
+                  itemBuilder: (context, position) {
+                    return _buildPageItem(position, data.nowPlayingList[position]);
+                  }
+              ),
+            ): const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            );
+          }),
+        ],
+      ),
     );
   }
 

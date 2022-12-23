@@ -5,9 +5,11 @@ import '../models/movies_model.dart';
 import '../utils/dimensions.dart';
 
 class FavoriteWidget extends StatefulWidget {
+  final int movieId;
   final Result movie;
 
   const FavoriteWidget({Key? key,
+    required this.movieId,
     required this.movie,
   }) : super(key: key);
 
@@ -23,7 +25,9 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    isFavorite = favoritesController.isInFavoriteList(widget.movie.id!);
+    if(widget.movie.id != null){
+      isFavorite = favoritesController.isInFavoriteList(widget.movie.id!);
+    }
   }
 
   @override

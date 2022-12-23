@@ -115,7 +115,7 @@ class MoviesController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoadedUpcoming = true;
+      _isLoadedCategory = true;
       update();
     }
   }
