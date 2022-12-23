@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../controller/movies_controller.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
+import '../../widgets/no_data.dart';
 import '../../widgets/title_text_widget.dart';
 import 'package:get/get.dart';
 import 'build_page_item.dart';
@@ -23,19 +24,21 @@ class _UpcomingState extends State<Upcoming> {
         children: [
           const TitleTextWidget(text: "Upcoming"),
           GetBuilder<MoviesController>(builder: (data) {
-            return data.isLoadedUpcoming? SizedBox(
-              height: Dimensions.pageViewContainer,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: data.upcomingList.length,
-                  itemBuilder: (context, position) {
-                    return BuildPageItem(index: position, movie: data.upcomingList[position]);
-                  }),
-            ): const Center(
-              child: CircularProgressIndicator(
+            if(data.isLoadedUpcoming){
+              return data.upcomingList.isNotEmpty? SizedBox(
+                height: Dimensions.pageViewContainer,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: data.upcomingList.length,
+                    itemBuilder: (context, position) {
+                      return BuildPageItem(index: position, movie: data.upcomingList[position]);
+                    }),
+              ): const NoData(text: "There are no upcoming movies");
+            }else{
+              return const CircularProgressIndicator(
                 color: AppColors.whiteColor,
-              ),
-            );
+              );
+            }
           }),
         ],
       ),

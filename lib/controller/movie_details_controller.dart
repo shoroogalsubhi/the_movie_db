@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import '../data/repository/movie_details_repo.dart';
 import '../models/cast_model.dart';
 import '../models/movies_model.dart';
-import '../utils/app_constants.dart';
-
 class MovieDetailsController extends GetxController {
   final MovieDetailsRepo movieDetailsRepo;
   MovieDetailsController({required this.movieDetailsRepo});
@@ -16,7 +14,7 @@ class MovieDetailsController extends GetxController {
   List<Cast> _movieCastList = [];
   List<Cast> get movieCastList => _movieCastList;
 
-
+  // data loaded or there is no data
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
@@ -33,8 +31,6 @@ class MovieDetailsController extends GetxController {
       _movieInfo = Result.fromJson(
           json.decode(response.body)
       );
-      // _isLoaded = true;
-      // update();
     }
   }
 
@@ -47,16 +43,15 @@ class MovieDetailsController extends GetxController {
               json.decode(response.body)
           ).cast as List<Cast>
       );
-      _isLoaded = true;
-      update();
-    } else {}
+    }
+    _isLoaded = true;
+    update();
   }
 
   void clearData(){
     _movieInfo = Result();
     _movieCastList = [];
     _isLoaded = false;
-    print("data clear");
   }
 
 }

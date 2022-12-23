@@ -7,6 +7,7 @@ import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/favorite_widget.dart';
+import '../../widgets/no_data.dart';
 
 class Trending extends StatefulWidget {
   const Trending({Key? key}) : super(key: key);
@@ -33,14 +34,18 @@ class _TrendingState extends State<Trending> {
         ),
       ),
       body: GetBuilder<TrendingController>(builder: (data) {
-        return data.isLoaded? ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: data.trendingList.length,
-            itemBuilder: (context, position) {
-              return _buildPageItem(position, data.trendingList[position]);
-            }): const CircularProgressIndicator(
-          color: AppColors.whiteColor,
-        );
+        if(data.isLoaded){
+          return data.trendingList.isNotEmpty?ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: data.trendingList.length,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position, data.trendingList[position]);
+              }): const NoData(text: "There are no trending movies", bigImage: true,);
+        }else{
+          return const CircularProgressIndicator(
+            color: AppColors.whiteColor,
+          );
+        }
       }),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:the_movie_db/screens/movie_detail/reviews.dart';
+import 'package:the_movie_db/screens/movie_detail/build_reviews.dart';
 import 'package:the_movie_db/widgets/shimmer_movie_details.dart';
 import '../../controller/movie_details_controller.dart';
 import '../../utils/dimensions.dart';
@@ -8,7 +8,7 @@ import '../../widgets/favorite_widget.dart';
 import 'movie_details_image.dart';
 import '../../widgets/title_text_widget.dart';
 import 'build_cast.dart';
-import 'genres.dart';
+import 'build_genres.dart';
 
 
 class MovieDetail extends StatefulWidget {

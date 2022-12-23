@@ -7,8 +7,7 @@ import 'package:http/http.dart' as http;
 
 class FavoritesRepo extends GetxService {
   final ApiClient apiClient;
-  final SharedPreferences sharedPreferences;
-  FavoritesRepo ({required this.apiClient, required this.sharedPreferences});
+  FavoritesRepo ({required this.apiClient});
 
   Future <http.Response> getFavoritesList() async{
     return await apiClient.getData(AppConstants.baseUrl + AppConstants.favorites);

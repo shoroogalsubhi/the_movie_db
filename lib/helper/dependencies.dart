@@ -15,14 +15,15 @@ Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   //merge with getX
   Get.lazyPut(() => sharedPreferences);
+
   //api client
   Get.lazyPut(() => ApiClient(appBaseUrl: AppConstants.baseUrl, sharedPreferences: Get.find()));
 
-  //repo
+  //repositories
   Get.lazyPut(() => TrendingRepo(apiClient: Get.find()));
   Get.lazyPut(() => MoviesRepo(apiClient: Get.find()));
   Get.lazyPut(() => MovieDetailsRepo(apiClient: Get.find()));
-  Get.lazyPut(() => FavoritesRepo(apiClient: Get.find(), sharedPreferences: Get.find()));
+  Get.lazyPut(() => FavoritesRepo(apiClient: Get.find()));
 
   //controllers
   Get.lazyPut(() => TrendingController(trendingRepo: Get.find()));

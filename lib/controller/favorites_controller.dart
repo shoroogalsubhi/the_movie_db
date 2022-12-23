@@ -7,13 +7,12 @@ class FavoritesController extends GetxController {
   final FavoritesRepo favoritesRepo;
   FavoritesController({required this.favoritesRepo});
 
-
   List<Result> _favoritesList = [];
   List<Result> get favoritesList => _favoritesList;
 
+  // data loaded or there is no data
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
-
 
 
   Future<void> getFavoritesList() async {
@@ -25,9 +24,9 @@ class FavoritesController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoaded = true;
-      update();
-    } else {}
+    }
+    _isLoaded = true;
+    update();
   }
 
   Future<void> toggle(int movieId, bool isFavorite) async {
@@ -42,7 +41,6 @@ class FavoritesController extends GetxController {
       }
       update();
     }else{
-      print("code: ${response.statusCode}");
       throw Exception(response.body);
     }
 

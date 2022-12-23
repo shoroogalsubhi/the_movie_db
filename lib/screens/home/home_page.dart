@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:the_movie_db/screens/favorite/favorites.dart';
 import 'package:the_movie_db/screens/movies_home/movies_home.dart';
 import 'package:the_movie_db/screens/trending/trending.dart';
-import 'package:the_movie_db/utils/dimensions.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 
@@ -41,6 +40,7 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.mainColor2,
         unselectedItemColor: AppColors.whiteColor,
+        showUnselectedLabels: false,
         backgroundColor: AppColors.mainColor,
         currentIndex: _selectedIndex,
         onTap: onTapNav,

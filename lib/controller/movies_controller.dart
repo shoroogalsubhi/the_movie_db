@@ -29,9 +29,8 @@ class MoviesController extends GetxController {
   List<int> selectedCategory = [-1];
   final favoritesController = Get.find<FavoritesController>();
 
-
-
   //loading
+  // data loaded or there is no data
   bool _isLoadedNowPlaying = false;
   bool get isLoadedNowPlaying => _isLoadedNowPlaying;
 
@@ -59,9 +58,9 @@ class MoviesController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoadedNowPlaying = true;
-      update();
     }
+    _isLoadedNowPlaying = true;
+    update();
   }
 
   Future<void> getUpcomingList() async {
@@ -73,9 +72,9 @@ class MoviesController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoadedUpcoming = true;
-      update();
     }
+    _isLoadedUpcoming = true;
+    update();
   }
 
   Future<void> getCategoryList() async {
@@ -87,9 +86,9 @@ class MoviesController extends GetxController {
               json.decode(response.body)
           ).category as List<CategoryModel>
       );
-      _isLoadedCategory = true;
-      update();
     }
+    _isLoadedCategory = true;
+    update();
   }
 
   Future<void> getMoviesWithCategoryList() async {
@@ -115,9 +114,9 @@ class MoviesController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoadedCategory = true;
-      update();
     }
+    _isLoadedCategory = true;
+    update();
   }
 
 

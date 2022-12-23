@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../utils/app_constants.dart';
 import 'package:http/http.dart' as http;
+
 class ApiClient extends GetConnect implements GetxService {
   late String token;
   final String appBaseUrl;
@@ -42,8 +42,6 @@ class ApiClient extends GetConnect implements GetxService {
       http.Response response = await http.post(Uri.parse(uri), body: body, headers: _mainHeaders);
       return response;
     }catch(e){
-      print(e.toString());
-      // return Response(statusCode: 1, statusText: e.toString());
       throw Exception("Failed to post the data");
     }
   }

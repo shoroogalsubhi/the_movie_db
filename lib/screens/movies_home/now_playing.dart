@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 import '../../routes/route_helper.dart';
 import '../../controller/movies_controller.dart';
 import '../../models/movies_model.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
+import '../../widgets/no_data.dart';
 import '../../widgets/title_text_widget.dart';
 
 class NowPlaying extends StatefulWidget {
@@ -49,20 +49,22 @@ class _NowPlayingState extends State<NowPlaying> {
         children: [
           const TitleTextWidget(text: "Now Playing"),
           GetBuilder<MoviesController>(builder: (data) {
-            return data.isLoadedNowPlaying? SizedBox(
-              height: Dimensions.pageViewContainer,
-              child: PageView.builder(
-                  controller: pageController,
-                  itemCount: data.nowPlayingList.length,
-                  itemBuilder: (context, position) {
-                    return _buildPageItem(position, data.nowPlayingList[position]);
-                  }
-              ),
-            ): const Center(
-              child: CircularProgressIndicator(
+            if(data.isLoadedNowPlaying){
+              return data.nowPlayingList.isNotEmpty? SizedBox(
+                height: Dimensions.pageViewContainer,
+                child: PageView.builder(
+                    controller: pageController,
+                    itemCount: data.nowPlayingList.length,
+                    itemBuilder: (context, position) {
+                      return _buildPageItem(position, data.nowPlayingList[position]);
+                    }
+                ),
+              ): const NoData(text: "There are no movies playing");
+            }else{
+              return const CircularProgressIndicator(
                 color: AppColors.whiteColor,
-              ),
-            );
+              );
+            }
           }),
         ],
       ),

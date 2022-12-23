@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/controller/favorites_controller.dart';
 import 'package:get/get.dart';
-import 'package:the_movie_db/screens/home/home_page.dart';
 import '../../models/movies_model.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/favorite_widget.dart';
+import '../../widgets/no_data.dart';
 
 class Favorites extends StatefulWidget {
   const Favorites({Key? key}) : super(key: key);
@@ -27,24 +27,26 @@ class _FavoritesState extends State<Favorites> {
         backgroundColor: AppColors.mainColor,
         elevation: 0,
       ),
-      // bottomNavigationBar: HomePage(),
       body: GetBuilder<FavoritesController>(builder: (data) {
-        return data.isLoaded?
-        GridView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: data.favoritesList.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: Dimensions.width10,
-              mainAxisSpacing: Dimensions.height20,
-              mainAxisExtent: Dimensions.height40*6
-          ),
-          itemBuilder: (context, position) {
-            return _buildPageItem(position, data.favoritesList[position]);
-          },
-        ): const CircularProgressIndicator(
-          color: AppColors.mainColor,
-        );
+        if(data.isLoaded){
+          return data.favoritesList.isNotEmpty? GridView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: data.favoritesList.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: Dimensions.width10,
+                mainAxisSpacing: Dimensions.height20,
+                mainAxisExtent: Dimensions.height40*6
+            ),
+            itemBuilder: (context, position) {
+              return _buildPageItem(position, data.favoritesList[position]);
+            },
+          ): const NoData(text: "There are no favorites movies", bigImage: true,);
+        }else{
+          return const CircularProgressIndicator(
+            color: AppColors.whiteColor,
+          );
+        }
       }),
     );
   }

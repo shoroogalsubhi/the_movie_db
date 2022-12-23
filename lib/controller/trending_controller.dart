@@ -11,6 +11,7 @@ class TrendingController extends GetxController {
   List<Result> _trendingList = [];
   List<Result> get trendingList => _trendingList;
 
+  // data loaded or there is no data
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
@@ -24,9 +25,9 @@ class TrendingController extends GetxController {
               json.decode(response.body)
           ).results as List<Result>
       );
-      _isLoaded = true;
-      update();
-    } else {}
+    }
+    _isLoaded = true;
+    update();
   }
 
 }
