@@ -76,7 +76,7 @@ class _MoviesState extends State<Movies> {
         child: Text(
           category,
           style: TextStyle(
-              color: selected? AppColors.whiteColor: AppColors.mainColor2,
+              color: selected? AppColors.whiteColor: AppColors.mainColor,
               fontSize: Dimensions.font16
           ),
         ),
