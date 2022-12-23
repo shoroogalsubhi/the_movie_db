@@ -44,7 +44,7 @@ class BuildCast extends StatelessWidget {
                 bottomRight: radius,
                 bottomLeft: radius,
               ),
-              color: Colors.white,
+              color: AppColors.whiteColor,
               boxShadow: const [
                 BoxShadow(
                   color: Color(0xFFe8e8e8),
@@ -52,7 +52,7 @@ class BuildCast extends StatelessWidget {
                   offset: Offset(0, 2),
                 ),
                 BoxShadow(
-                  color: Colors.white,
+                  color: AppColors.whiteColor,
                   offset: Offset(2, 0),
                 ),
               ],

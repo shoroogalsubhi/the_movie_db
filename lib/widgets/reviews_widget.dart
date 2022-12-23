@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/utils/dimensions.dart';
 
+import '../utils/colors.dart';
+
 class ReviewsWidget extends StatelessWidget {
   final IconData icon;
   final String text;
@@ -16,7 +18,7 @@ class ReviewsWidget extends StatelessWidget {
       padding: EdgeInsets.all(Dimensions.width20),
       child: Column(
         children: [
-          Icon(icon, color: Colors.amber,),
+          Icon(icon, color: AppColors.mainColor2,),
           Text(text),
         ],
       ),

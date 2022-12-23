@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/utils/dimensions.dart';
 import '../../utils/app_constants.dart';
+import '../../utils/colors.dart';
 
 class MovieDetailsImage extends StatelessWidget {
   final String? imagePath;
@@ -16,7 +17,7 @@ class MovieDetailsImage extends StatelessWidget {
       child: Container(
         height: Dimensions.height40*7,
         decoration: BoxDecoration(
-          color: Colors.lightBlue,
+          color: AppColors.secondaryColor,
           image: imagePath != null? DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(AppConstants.image + imagePath!)

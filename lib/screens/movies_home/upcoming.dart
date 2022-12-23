@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../controller/movies_controller.dart';
-import '../../models/movies_model.dart';
-import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
-import '../../widgets/favorite_widget.dart';
 import '../../widgets/title_text_widget.dart';
 import 'package:get/get.dart';
-import '../../routes/route_helper.dart';
 import 'build_page_item.dart';
 
 class Upcoming extends StatefulWidget {
@@ -37,7 +33,7 @@ class _UpcomingState extends State<Upcoming> {
                   }),
             ): const Center(
               child: CircularProgressIndicator(
-                color: Colors.white,
+                color: AppColors.whiteColor,
               ),
             );
           }),

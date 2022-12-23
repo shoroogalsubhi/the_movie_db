@@ -39,7 +39,7 @@ class _MoviesState extends State<Movies> {
               ),
             ): const Center(
               child: CircularProgressIndicator(
-                color: Colors.white,
+                color: AppColors.whiteColor,
               ),
             );
           }),
@@ -55,7 +55,7 @@ class _MoviesState extends State<Movies> {
                   }
               ),
             ): const CircularProgressIndicator(
-              color: AppColors.mainColor,
+              color: AppColors.whiteColor,
             );
           }),
         ],
@@ -69,14 +69,14 @@ class _MoviesState extends State<Movies> {
     return Container(
       margin: EdgeInsets.all(Dimensions.width10),
       decoration: BoxDecoration(
-          color: selected? Colors.amber: Colors.white,
+          color: selected? AppColors.mainColor2: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(Dimensions.radius20)
       ),
       child: TextButton(
         child: Text(
           category,
           style: TextStyle(
-              color: selected? Colors.white: AppColors.mainColor,
+              color: selected? AppColors.whiteColor: AppColors.mainColor2,
               fontSize: Dimensions.font16
           ),
         ),

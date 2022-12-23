@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   scaffoldBackgroundColor: AppColors.mainColor,
                   textTheme: TextTheme(
                     bodyMedium: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.whiteColor,
                         fontSize: Dimensions.font16
                     ),
                   )

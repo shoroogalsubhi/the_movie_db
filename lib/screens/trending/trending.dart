@@ -39,7 +39,7 @@ class _TrendingState extends State<Trending> {
             itemBuilder: (context, position) {
               return _buildPageItem(position, data.trendingList[position]);
             }): const CircularProgressIndicator(
-          color: AppColors.mainColor,
+          color: AppColors.whiteColor,
         );
       }),
     );
@@ -55,7 +55,6 @@ class _TrendingState extends State<Trending> {
         children: [
           Container(
             height: Dimensions.pageViewContainer,
-            // width: Dimensions.width40*3,
             margin: EdgeInsets.symmetric(
                 horizontal: Dimensions.width30,
                 vertical: Dimensions.height20

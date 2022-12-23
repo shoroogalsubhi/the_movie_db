@@ -60,7 +60,7 @@ class _NowPlayingState extends State<NowPlaying> {
               ),
             ): const Center(
               child: CircularProgressIndicator(
-                color: Colors.white,
+                color: AppColors.whiteColor,
               ),
             );
           }),
