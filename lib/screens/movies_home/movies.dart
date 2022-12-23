@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_movie_db/controller/movies_controller.dart';
-import '../../models/movies_model.dart';
 import '../../routes/route_helper.dart';
-import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
-import '../../widgets/favorite_widget.dart';
-import '../../widgets/no_data.dart';
-import '../../widgets/title_text_widget.dart';
-import 'build_page_item.dart';
+import '../../widgets/general/no_data.dart';
+import '../../widgets/general/title_text_widget.dart';
+import '../../widgets/images/build_image_item.dart';
 
 class Movies extends StatefulWidget {
   const Movies({Key? key}) : super(key: key);
@@ -49,10 +46,14 @@ class _MoviesState extends State<Movies> {
                       scrollDirection: Axis.horizontal,
                       itemCount: data.categoryMoviesList.length,
                       itemBuilder: (context, position) {
-                        return BuildPageItem(index:position, movie: data.categoryMoviesList[position]);
+                        return BuildImageItem(
+                          index:position,
+                          movie: data.categoryMoviesList[position],
+                          routerName: RouteHelper.moviesHome,
+                        );
                       }
                   ): const NoData(text: "This category has no movies"),
-                ): const CircularProgressIndicator(
+                ):  const CircularProgressIndicator(
                   color: AppColors.whiteColor,
                 );
               }),
@@ -60,8 +61,13 @@ class _MoviesState extends State<Movies> {
             // No Category then, nothing show up
           ):Container();
         }else{
-          return const CircularProgressIndicator(
-            color: AppColors.whiteColor,
+          return SizedBox(
+            height: Dimensions.height10,
+            child: const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.whiteColor,
+              ),
+            ),
           );
         }
       }),

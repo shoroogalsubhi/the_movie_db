@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import '../utils/dimensions.dart';
-import '../screens/movie_detail/movie_details_image.dart';
+import '../../screens/movie_details/movie_details_image.dart';
+import '../../utils/dimensions.dart';
 
 class ShimmerMovieDetails extends StatelessWidget {
   const ShimmerMovieDetails({Key? key}) : super(key: key);

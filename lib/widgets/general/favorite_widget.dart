@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/favorites_controller.dart';
-import '../models/movies_model.dart';
-import '../utils/dimensions.dart';
+import '../../controller/favorites_controller.dart';
+import '../../models/movies_model.dart';
+import '../../utils/dimensions.dart';
 
 class FavoriteWidget extends StatefulWidget {
   final int movieId;

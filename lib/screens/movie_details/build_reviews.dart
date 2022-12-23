@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../controller/movie_details_controller.dart';
-import '../../widgets/reviews_widget.dart';
+import '../../widgets/movie_details_widgets/reviews_widget.dart';
 
 class BuildReviews extends StatelessWidget {
   final MovieDetailsController data;

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:the_movie_db/screens/trending/trending.dart';
 import '../screens/favorite/favorites.dart';
 import '../screens/home/home_page.dart';
-import '../screens/movie_detail/movie_detail.dart';
+import '../screens/movie_details/movie_detail.dart';
 import '../screens/movies_home/movies_home.dart';
 import '../screens/splash_screen/splash_page.dart';
 

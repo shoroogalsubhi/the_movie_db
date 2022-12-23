@@ -16,6 +16,11 @@ class MovieDetailsImage extends StatelessWidget {
       clipper: ImageClipper(),
       child: Container(
         height: Dimensions.height40*7,
+        width: double.maxFinite,
+        margin: EdgeInsets.symmetric(
+          horizontal: Dimensions.width10/11,
+          vertical: Dimensions.height10/11
+        ),
         decoration: BoxDecoration(
           color: AppColors.secondaryColor,
           image: imagePath != null? DecorationImage(

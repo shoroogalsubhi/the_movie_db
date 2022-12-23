@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import '../../routes/route_helper.dart';
 import '../../controller/movies_controller.dart';
 import '../../models/movies_model.dart';
-import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
-import '../../widgets/no_data.dart';
-import '../../widgets/title_text_widget.dart';
+import '../../widgets/images/image_decoration.dart';
+import '../../widgets/general/no_data.dart';
+import '../../widgets/general/title_text_widget.dart';
 
 class NowPlaying extends StatefulWidget {
   const NowPlaying({Key? key}) : super(key: key);
@@ -61,8 +61,10 @@ class _NowPlayingState extends State<NowPlaying> {
                 ),
               ): const NoData(text: "There are no movies playing");
             }else{
-              return const CircularProgressIndicator(
-                color: AppColors.whiteColor,
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.whiteColor,
+                ),
               );
             }
           }),
@@ -103,21 +105,13 @@ class _NowPlayingState extends State<NowPlaying> {
         onTap: (){
           Get.toNamed(RouteHelper.getMovieDetail(nowPlaying.id!, RouteHelper.moviesHome));
         },
-        child: Container(
-          height: Dimensions.pageViewContainer,
-          margin: EdgeInsets.symmetric(
-              horizontal: Dimensions.width10,
-              vertical: Dimensions.height10
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimensions.radius30),
-            color: index.isEven ? AppColors.secondaryColor : AppColors.tertiaryColor,
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(AppConstants.image + nowPlaying.backdropPath!),
-            ),
-          ),
+        child: ImageDecoration(
+            imagePath: nowPlaying.backdropPath,
+            index: index,
+            height: Dimensions.pageViewContainer,
+            width: Dimensions.width40*3,
         ),
+
       ),
     );
   }

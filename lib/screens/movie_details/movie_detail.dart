@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:the_movie_db/screens/movie_detail/build_reviews.dart';
-import 'package:the_movie_db/widgets/shimmer_movie_details.dart';
+import 'package:the_movie_db/screens/movie_details/build_reviews.dart';
+import 'package:the_movie_db/widgets/movie_details_widgets/shimmer_movie_details.dart';
 import '../../controller/movie_details_controller.dart';
 import '../../utils/dimensions.dart';
-import '../../widgets/favorite_widget.dart';
+import '../../widgets/general/favorite_widget.dart';
 import 'movie_details_image.dart';
-import '../../widgets/title_text_widget.dart';
+import '../../widgets/general/title_text_widget.dart';
 import 'build_cast.dart';
 import 'build_genres.dart';
 

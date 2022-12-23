@@ -18,7 +18,7 @@ class AppConstants{
   static const String favorites = "/account/$_accountID/favorite/movies$_apiKey$_sessionID";
   static const String postFavorites = "/account/$_accountID/favorite$_apiKey$_sessionID";
 
-  static const String trending = "/trending/all/day$_apiKey";
+  static const String trending = "/trending/movie/day$_apiKey";
   static const String nowPlying = "/movie/now_playing$_apiKey$_language&page=1";
   static const String upcoming = "/movie/upcoming$_apiKey$_language&page=1";
 

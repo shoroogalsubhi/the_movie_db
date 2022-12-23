@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/utils/dimensions.dart';
 
-import '../utils/colors.dart';
+import '../../utils/colors.dart';
 
 class ReviewsWidget extends StatelessWidget {
   final IconData icon;
