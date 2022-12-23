@@ -8,6 +8,7 @@ The software was developed based on a challenge on the ([Okoul](https://www.okou
   - [Installation](#installation)
   - [Tools](#tools)
   - [Dependencies](#dependencies)
+  - [License](#license)
   - [Contact me](#contact-me)
 
 
@@ -46,8 +47,12 @@ flutter run
  - [http: ^0.13.5](https://pub.dev/packages/http)
  - [shimmer: ^2.0.0](https://pub.dev/packages/shimmer)
  - [shared_preferences: ^2.0.15](https://pub.dev/packages/shared_preferences)
+ 
+ ## LICENSE
+ - [MIT License](https://github.com/shoroogalsubhi/the_movie_db/blob/main/LICENSE)
 
 ## Contact me
    - Email shoroogalsubhi@gmail.com
    - Linkedin [Shoroog Alsubhi](https://www.linkedin.com/in/shoroogalsubhi/)
+   
 
