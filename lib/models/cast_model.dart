@@ -11,7 +11,7 @@ class CastModel{
   }
 
   CastModel.fromJson(Map<String, dynamic> json) {
-    _id = id;
+    _id = json['id'];
     _cast = <Cast>[];
     if (json['cast'] != null) {
       json['cast'].forEach((v) {
