@@ -45,21 +45,22 @@ class _TrendingState extends State<Trending> {
                 scrollDirection: Axis.vertical,
                 itemCount: data.trendingList.length,
                 itemBuilder: (context, position) {
-                  return _buildPageItem(position, data.trendingList[position]);
+                  return _buildMovieItem(position, data.trendingList[position]);
                 }),
           ): const NoData(text: "There are no trending movies", bigImage: true,);
         }else{
-          return const CircularProgressIndicator(
-            color: AppColors.whiteColor,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: AppColors.whiteColor,
+            ),
           );
         }
       }),
     );
   }
 
-
-  Widget _buildPageItem(int index, Result trending) {
-    double vote = double.parse(trending.voteAverage??"0");
+  // movie info (name and ration)
+  Widget _buildMovieItem(int index, Result trending) {
     return GestureDetector(
       onTap: (){
         Get.toNamed(RouteHelper.getMovieDetail(trending.id!, RouteHelper.trending));
@@ -80,45 +81,55 @@ class _TrendingState extends State<Trending> {
               movie: trending,
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: Dimensions.width100*3,
-              height: Dimensions.height30*3,
-              margin: EdgeInsets.only(
-                  top:Dimensions.height100*1.8
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                borderRadius: BorderRadius.circular(Dimensions.radius15)
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TitleTextWidget(
-                    text: trending.title??"Unnamed",
-                    color: AppColors.mainColor
-                  ),
-                  RatingBar.builder(
-                    initialRating: vote/ 2,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    ignoreGestures: true,
-                    onRatingUpdate: (_){},
-                    itemCount: 5,
-                    itemSize: Dimensions.width20,
-                    unratedColor: Colors.white,
-                    itemPadding: EdgeInsets.symmetric(horizontal: Dimensions.width10/3),
-                    itemBuilder: (context, _) => const Icon(
-                      Icons.star,
-                      color: AppColors.mainColor2,
-                    ),
-                  ),
-                ],
+          // movie info
+          _movieInfo(trending),
+        ],
+      ),
+    );
+  }
+
+  // movie info (name and ration)
+  Widget _movieInfo(Result trending){
+    double vote = double.parse(trending.voteAverage??"0");
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        width: Dimensions.width100*3,
+        height: Dimensions.height30*3,
+        margin: EdgeInsets.only(
+            top:Dimensions.height100*1.6
+        ),
+        decoration: BoxDecoration(
+            color: Colors.white70,
+            borderRadius: BorderRadius.circular(Dimensions.radius15)
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //movie name
+            TitleTextWidget(
+              text: trending.title??"Unnamed",
+              color: AppColors.mainColor,
+              small: true,
+            ),
+            //rating
+            RatingBar.builder(
+              initialRating: vote/ 2,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              ignoreGestures: true,
+              onRatingUpdate: (_){},
+              itemCount: 5,
+              itemSize: Dimensions.width20,
+              unratedColor: Colors.white,
+              itemPadding: EdgeInsets.symmetric(horizontal: Dimensions.width10/3),
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: AppColors.mainColor2,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

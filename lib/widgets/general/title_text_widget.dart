@@ -6,11 +6,13 @@ import '../../utils/dimensions.dart';
 class TitleTextWidget extends StatelessWidget {
   final String text;
   final Color color;
+  final bool small;
 
   const TitleTextWidget({
     Key? key,
     required this.text,
     this.color = AppColors.whiteColor,
+    this.small = false,
   }) : super(key: key);
 
   @override
@@ -25,8 +27,8 @@ class TitleTextWidget extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           color: color,
-          fontSize: Dimensions.font20,
-          fontWeight: FontWeight.w600,
+          fontSize: small? Dimensions.font16: Dimensions.font20,
+          fontWeight: small? FontWeight.w500 :FontWeight.w600,
         ),
       ),
     );

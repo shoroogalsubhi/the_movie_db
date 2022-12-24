@@ -38,7 +38,7 @@ class Result {
   bool? video;
   String? voteAverage;
   String? title;
-  double? popularity;
+  num? popularity;
   String? posterPath;
   String? originalLanguage;
   String? originalTitle;

@@ -5,6 +5,7 @@ import 'package:the_movie_db/widgets/movie_details_widgets/shimmer_movie_details
 import '../../controller/movie_details_controller.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/general/favorite_widget.dart';
+import '../../widgets/general/no_data.dart';
 import 'movie_details_image.dart';
 import '../../widgets/general/title_text_widget.dart';
 import 'build_cast.dart';
@@ -96,13 +97,13 @@ class _MovieDetailState extends State<MovieDetail> {
                       const TitleTextWidget(text: "Cast"),
                       SizedBox(
                         height: Dimensions.height40 * 6,
-                        child: ListView.builder(
+                        child: data.movieCastList.isNotEmpty? ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: data.movieCastList.length,
                             itemBuilder: (context, position) {
                               return BuildCast(index: position,
                                   movieCast: data.movieCastList[position]);
-                            }),
+                            }):const NoData(text: "Cast not provided for this movie"),
                       ),
                     ],
                   ),

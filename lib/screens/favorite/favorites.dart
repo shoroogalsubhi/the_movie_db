@@ -45,8 +45,10 @@ class _FavoritesState extends State<Favorites> {
             },
           ): const NoData(text: "There are no favorites movies", bigImage: true,);
         }else{
-          return const CircularProgressIndicator(
-            color: AppColors.whiteColor,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: AppColors.whiteColor,
+            ),
           );
         }
       }),
