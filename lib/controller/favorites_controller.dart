@@ -29,8 +29,8 @@ class FavoritesController extends GetxController {
     update();
   }
 
-  Future<void> toggle(Result movie, bool isFavorite) async {
-    await favoritesRepo.updateFavoriteMovies(movie.id!,isFavorite);
+  Future<void> toggle(int movieId, bool isFavorite) async {
+    await favoritesRepo.updateFavoriteMovies(movieId,isFavorite);
     //update the Favorites list
     getFavoritesList();
   }

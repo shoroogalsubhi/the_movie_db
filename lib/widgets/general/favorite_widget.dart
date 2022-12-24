@@ -37,7 +37,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
           onTap: (){
             setState(() {
               isFavorite = !isFavorite;
-              favoritesController.toggle(widget.movie,isFavorite);
+              favoritesController.toggle(widget.movie.id!,isFavorite);
             });
           },
           child: Container(
