@@ -34,10 +34,7 @@ class BuildImageItem extends StatelessWidget {
           Positioned(
             right: Dimensions.width20,
             top: Dimensions.height15,
-            child: FavoriteWidget(
-              movieId: movie.id!,
-              movie: movie,
-            ),
+            child: FavoriteWidget(movie: movie),
           ),
         ],
       ),

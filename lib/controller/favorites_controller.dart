@@ -29,21 +29,10 @@ class FavoritesController extends GetxController {
     update();
   }
 
-  Future<void> toggle(int movieId, bool isFavorite) async {
-    final response = await favoritesRepo.postMovieToFavorites(movieId,isFavorite);
-    //response.statusCode:
-    // 1: (mark as favorite) | 13: (mark as not favorite)
-    if(response.statusCode == 200 || response.statusCode == 201){
-      // Get.find<MoviesController>().setIsFavorite(movieId,isFavorite);
-      // delete the movie from the list if it is marked as not favorite
-      if(!isFavorite){
-        _favoritesList.removeWhere((item) => item.id == movieId);
-      }
-      update();
-    }else{
-      throw Exception(response.body);
-    }
-
+  Future<void> toggle(Result movie, bool isFavorite) async {
+    await favoritesRepo.updateFavoriteMovies(movie.id!,isFavorite);
+    //update the Favorites list
+    getFavoritesList();
   }
 
   bool isInFavoriteList(int movieId){

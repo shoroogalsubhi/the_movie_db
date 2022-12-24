@@ -63,10 +63,7 @@ class _MovieDetailState extends State<MovieDetail> {
                               Get.back();
                             },
                           ),
-                          FavoriteWidget(
-                            movieId: widget.movieId,
-                            movie: data.movieInfo,
-                          ),
+                          FavoriteWidget(movie: data.movieInfo),
                         ],
                       ),
                     ),

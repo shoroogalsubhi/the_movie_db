@@ -12,7 +12,7 @@ class FavoritesRepo extends GetxService {
     return await apiClient.getData(AppConstants.baseUrl + AppConstants.favorites);
   }
 
-  Future<http.Response> postMovieToFavorites(int movieId, bool isFavorite) async{
+  Future<http.Response> updateFavoriteMovies(int movieId, bool isFavorite) async{
     return await apiClient.postData(
     AppConstants.baseUrl + AppConstants.postFavorites,
         json.encode({"media_type": "movie", "media_id": movieId, "favorite": isFavorite})
