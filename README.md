@@ -62,6 +62,7 @@ flutter run
 - [http: ^0.13.5](https://pub.dev/packages/http)
 - [shimmer: ^2.0.0](https://pub.dev/packages/shimmer)
 - [shared_preferences: ^2.0.15](https://pub.dev/packages/shared_preferences)
+- [flutter_rating_bar: ^4.0.1](https://pub.dev/packages/flutter_rating_bar)
 
 ## LICENSE
 - [MIT License](https://github.com/shoroogalsubhi/the_movie_db/blob/main/LICENSE)
