@@ -21,9 +21,17 @@ class BuildCast extends StatelessWidget {
       margin: EdgeInsets.all(Dimensions.width10),
       child: Column(
         children: [
+          // cast image
           Container(
             height: Dimensions.height40*4,
             decoration: BoxDecoration(
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.white54,
+                  blurRadius: 5.0,
+                  offset: Offset(0, 2),
+                ),
+              ],
               borderRadius: BorderRadius.only(
                 topRight: radius,
                 topLeft: radius,
@@ -37,6 +45,7 @@ class BuildCast extends StatelessWidget {
               ),
             ),
           ),
+          // cast name
           Container(
             height: Dimensions.height40,
             decoration: BoxDecoration(
@@ -44,16 +53,12 @@ class BuildCast extends StatelessWidget {
                 bottomRight: radius,
                 bottomLeft: radius,
               ),
-              color: AppColors.whiteColor,
+              color: AppColors.mainColor2,
               boxShadow: const [
                 BoxShadow(
-                  color: Color(0xFFe8e8e8),
+                  color: Colors.white54,
                   blurRadius: 5.0,
                   offset: Offset(0, 2),
-                ),
-                BoxShadow(
-                  color: AppColors.whiteColor,
-                  offset: Offset(2, 0),
                 ),
               ],
             ),
@@ -62,7 +67,7 @@ class BuildCast extends StatelessWidget {
                   movieCast.name??"Unknown",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppColors.mainColor,
+                    color: AppColors.whiteColor,
                     fontSize: Dimensions.font16,
                     fontWeight: FontWeight.w500,
                   ),

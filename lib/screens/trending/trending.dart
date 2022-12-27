@@ -97,7 +97,9 @@ class _TrendingState extends State<Trending> {
             top:Dimensions.height100*1.6
         ),
         decoration: BoxDecoration(
-            color: Colors.white70,
+            // color: Colors.white70,
+            color: AppColors.mainColor2.withOpacity(0.8),
+
             borderRadius: BorderRadius.circular(Dimensions.radius15)
         ),
         child: Column(
@@ -106,7 +108,7 @@ class _TrendingState extends State<Trending> {
             //movie name
             TitleTextWidget(
               text: trending.title??"Unnamed",
-              color: AppColors.mainColor,
+              color: AppColors.whiteColor,
               small: true,
             ),
             //rating
@@ -118,11 +120,11 @@ class _TrendingState extends State<Trending> {
               onRatingUpdate: (_){},
               itemCount: 5,
               itemSize: Dimensions.width20,
-              unratedColor: Colors.white,
+              unratedColor: AppColors.whiteColor,
               itemPadding: EdgeInsets.symmetric(horizontal: Dimensions.width10/3),
               itemBuilder: (context, _) => const Icon(
                 Icons.star,
-                color: AppColors.mainColor2,
+                color: AppColors.mainColor,
               ),
             ),
           ],

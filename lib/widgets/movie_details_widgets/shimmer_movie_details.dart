@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../screens/movie_details/movie_details_image.dart';
+import '../images/movie_details_image.dart';
 import '../../utils/dimensions.dart';
 
 class ShimmerMovieDetails extends StatelessWidget {

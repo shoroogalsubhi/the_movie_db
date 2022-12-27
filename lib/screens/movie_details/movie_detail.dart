@@ -4,9 +4,10 @@ import 'package:the_movie_db/screens/movie_details/build_reviews.dart';
 import 'package:the_movie_db/widgets/movie_details_widgets/shimmer_movie_details.dart';
 import '../../controller/movie_details_controller.dart';
 import '../../utils/dimensions.dart';
+import '../../widgets/general/app_icon.dart';
 import '../../widgets/general/favorite_widget.dart';
 import '../../widgets/general/no_data.dart';
-import 'movie_details_image.dart';
+import '../../widgets/images/movie_details_image.dart';
 import '../../widgets/general/title_text_widget.dart';
 import 'build_cast.dart';
 import 'build_genres.dart';
@@ -55,10 +56,10 @@ class _MovieDetailState extends State<MovieDetail> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.arrow_back, color: Colors.white,),
-                            onPressed: () {
+                          AppIcon(
+                            icon: Icons.arrow_back,
+                            color: Colors.black87,
+                            onTap: (){
                               data.clearData();
                               Get.back();
                             },
@@ -81,7 +82,9 @@ class _MovieDetailState extends State<MovieDetail> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dimensions.width20
                 ),
-                child: Text(data.movieInfo.overview ?? "There is no overview"),
+                child: Text(
+                  data.movieInfo.overview ?? "There is no overview",
+                  style: const TextStyle(color: Colors.white70),),
               ),
               // cast info
               Align(
@@ -107,9 +110,7 @@ class _MovieDetailState extends State<MovieDetail> {
                 ),
               )
             ],
-          ):
-          const ShimmerMovieDetails();
-
+          ): const ShimmerMovieDetails();
         }),
       ),
     );

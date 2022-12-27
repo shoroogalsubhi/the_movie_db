@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../controller/favorites_controller.dart';
 import '../../models/movies_model.dart';
 import '../../utils/dimensions.dart';
+import 'app_icon.dart';
 
 class FavoriteWidget extends StatefulWidget {
   final Result movie;
@@ -30,30 +31,17 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // I used InkWell instead of the IconButton to center
-    // the ❤ in the Container
     return GetBuilder<FavoritesController>(builder: (data) {
-        return InkWell(
-          onTap: (){
-            setState(() {
-              isFavorite = !isFavorite;
-              favoritesController.toggle(widget.movie.id!,isFavorite);
-            });
-          },
-          child: Container(
-            height: Dimensions.width30,
-            width: Dimensions.width30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimensions.radius20),
-              color: Colors.white60,
-            ),
-            child: Icon(
-              isFavorite?Icons.favorite:Icons.favorite_border_rounded,
-              color: isFavorite?Colors.red:Colors.black87,
-              size: Dimensions.width20,
-            ),
-          ),
-        );
+      return AppIcon(
+        icon: isFavorite?Icons.favorite:Icons.favorite_border_rounded,
+        color: isFavorite?Colors.red:Colors.black87,
+        onTap: (){
+          setState(() {
+            isFavorite = !isFavorite;
+            favoritesController.toggle(widget.movie.id!,isFavorite);
+          });
+        },
+      );
       }
     );
   }

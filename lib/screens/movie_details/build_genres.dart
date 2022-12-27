@@ -22,7 +22,7 @@ class BuildGenres extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: Dimensions.width10),
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: Colors.grey
+                      color: Colors.white70
                   ),
                   borderRadius: BorderRadius.circular(Dimensions.radius15)
               ),

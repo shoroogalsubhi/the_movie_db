@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColors.mainColor,
         currentIndex: _selectedIndex,
         onTap: onTapNav,
+        elevation: 0,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.local_movies_outlined),

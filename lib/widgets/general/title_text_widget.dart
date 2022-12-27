@@ -29,6 +29,7 @@ class TitleTextWidget extends StatelessWidget {
           color: color,
           fontSize: small? Dimensions.font16: Dimensions.font20,
           fontWeight: small? FontWeight.w500 :FontWeight.w600,
+            overflow: TextOverflow.fade
         ),
       ),
     );

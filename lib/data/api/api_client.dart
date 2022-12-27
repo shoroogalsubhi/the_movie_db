@@ -32,6 +32,7 @@ class ApiClient extends GetConnect implements GetxService {
     if (response.statusCode == 200) {
       return response;
     }else {
+      print("object: ${response.body}");
       throw Exception("Failed to get the data");
     }
 
