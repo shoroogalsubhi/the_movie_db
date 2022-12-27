@@ -1,12 +1,9 @@
 class AppConstants{
 
   //------------------ Your Data ------------------
-  static const String _apiKey = "?api_key=7c9c1d3a1f27d281075b4ef409be653a";
-  static const String _accountID = "16460506";
-  static const String _sessionID = "&session_id=0dcf64caf31d40f0bfcfaa2093af514829a96e30";
-  // static const String _apiKey = "?api_key=<<Your_api_key>>";
-  // static const String _accountID = "<<Your_account_ID>>";
-  // static const String _sessionID = "&session_id=<<Your_session_ID>>";
+  static const String _apiKey = "?api_key=<<Your_api_key>>";
+  static const String _accountID = "<<Your_account_ID>>";
+  static const String _sessionID = "&session_id=<<Your_session_ID>>";
   //------------------ End Your Data ------------------
 
   static const String appName = "The Movie DB app";
