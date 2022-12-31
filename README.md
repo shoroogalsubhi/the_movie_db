@@ -16,7 +16,11 @@ The software was developed based on a challenge on the ([Okoul](https://www.okou
 ### App APK
 [Movie app APK](https://github.com/shoroogalsubhi/the_movie_db/tree/main/GitHub%20folder/APK)
 ### Screen Recording
-Coming soon
+<video src="https://user-images.githubusercontent.com/43616146/210141546-49c977cd-4bd1-49d9-8d76-413e507749cc.mp4" controls="controls" style="max-width: 730px;"></video>
+
+
+
+
 ### Screenshots for Loading and No Data Cases
 
 Loading movies     |Loading images   |Now Playing & Upcoming
